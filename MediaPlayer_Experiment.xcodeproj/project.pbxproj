@@ -15,6 +15,19 @@
 		884DA85125B8CBF700B760A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884DA84F25B8CBF700B760A9 /* LaunchScreen.storyboard */; };
 		884DA85C25B8CBF700B760A9 /* MediaPlayer_ExperimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884DA85B25B8CBF700B760A9 /* MediaPlayer_ExperimentTests.swift */; };
 		884DA86725B8CBF700B760A9 /* MediaPlayer_ExperimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884DA86625B8CBF700B760A9 /* MediaPlayer_ExperimentUITests.swift */; };
+		884DA87B25B8CF0600B760A9 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884DA87A25B8CF0600B760A9 /* SongModel.swift */; };
+		888BEA8625B8E8D3000EE8CF /* What's to Come_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA7A25B8E8D2000EE8CF /* What's to Come_MASTER.mp3 */; };
+		888BEA8725B8E8D3000EE8CF /* Letters From the Past_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA7B25B8E8D2000EE8CF /* Letters From the Past_MASTER.mp3 */; };
+		888BEA8825B8E8D3000EE8CF /* Windfall_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA7C25B8E8D2000EE8CF /* Windfall_MASTER.mp3 */; };
+		888BEA8925B8E8D3000EE8CF /* Panic_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA7D25B8E8D2000EE8CF /* Panic_MASTER.mp3 */; };
+		888BEA8A25B8E8D3000EE8CF /* Burden of the Crown_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA7E25B8E8D2000EE8CF /* Burden of the Crown_MASTER.mp3 */; };
+		888BEA8B25B8E8D3000EE8CF /* So Close to Nothing_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA7F25B8E8D3000EE8CF /* So Close to Nothing_MASTER.mp3 */; };
+		888BEA8C25B8E8D3000EE8CF /* Zero_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA8025B8E8D3000EE8CF /* Zero_MASTER.mp3 */; };
+		888BEA8D25B8E8D3000EE8CF /* Therefore I Am_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA8125B8E8D3000EE8CF /* Therefore I Am_MASTER.mp3 */; };
+		888BEA8E25B8E8D3000EE8CF /* The Key_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA8225B8E8D3000EE8CF /* The Key_MASTER.mp3 */; };
+		888BEA8F25B8E8D3000EE8CF /* Settling_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA8325B8E8D3000EE8CF /* Settling_MASTER.mp3 */; };
+		888BEA9025B8E8D3000EE8CF /* Beat City_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA8425B8E8D3000EE8CF /* Beat City_MASTER.mp3 */; };
+		888BEA9125B8E8D3000EE8CF /* Sleazy_MASTER.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 888BEA8525B8E8D3000EE8CF /* Sleazy_MASTER.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +62,19 @@
 		884DA86225B8CBF700B760A9 /* MediaPlayer_ExperimentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaPlayer_ExperimentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		884DA86625B8CBF700B760A9 /* MediaPlayer_ExperimentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer_ExperimentUITests.swift; sourceTree = "<group>"; };
 		884DA86825B8CBF700B760A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		884DA87A25B8CF0600B760A9 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		888BEA7A25B8E8D2000EE8CF /* What's to Come_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "What's to Come_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA7B25B8E8D2000EE8CF /* Letters From the Past_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Letters From the Past_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA7C25B8E8D2000EE8CF /* Windfall_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Windfall_MASTER.mp3; sourceTree = SOURCE_ROOT; };
+		888BEA7D25B8E8D2000EE8CF /* Panic_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Panic_MASTER.mp3; sourceTree = SOURCE_ROOT; };
+		888BEA7E25B8E8D2000EE8CF /* Burden of the Crown_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Burden of the Crown_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA7F25B8E8D3000EE8CF /* So Close to Nothing_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "So Close to Nothing_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA8025B8E8D3000EE8CF /* Zero_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Zero_MASTER.mp3; sourceTree = SOURCE_ROOT; };
+		888BEA8125B8E8D3000EE8CF /* Therefore I Am_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Therefore I Am_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA8225B8E8D3000EE8CF /* The Key_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Key_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA8325B8E8D3000EE8CF /* Settling_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Settling_MASTER.mp3; sourceTree = SOURCE_ROOT; };
+		888BEA8425B8E8D3000EE8CF /* Beat City_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Beat City_MASTER.mp3"; sourceTree = SOURCE_ROOT; };
+		888BEA8525B8E8D3000EE8CF /* Sleazy_MASTER.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sleazy_MASTER.mp3; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +125,13 @@
 		884DA84325B8CBF600B760A9 /* MediaPlayer_Experiment */ = {
 			isa = PBXGroup;
 			children = (
+				888BEA6225B8E1C0000EE8CF /* Tracks */,
 				884DA84425B8CBF600B760A9 /* AppDelegate.swift */,
 				884DA84625B8CBF600B760A9 /* SceneDelegate.swift */,
 				884DA84825B8CBF600B760A9 /* ViewController.swift */,
 				884DA84A25B8CBF600B760A9 /* Main.storyboard */,
 				884DA84D25B8CBF700B760A9 /* Assets.xcassets */,
+				884DA87A25B8CF0600B760A9 /* SongModel.swift */,
 				884DA84F25B8CBF700B760A9 /* LaunchScreen.storyboard */,
 				884DA85225B8CBF700B760A9 /* Info.plist */,
 			);
@@ -126,6 +154,25 @@
 				884DA86825B8CBF700B760A9 /* Info.plist */,
 			);
 			path = MediaPlayer_ExperimentUITests;
+			sourceTree = "<group>";
+		};
+		888BEA6225B8E1C0000EE8CF /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				888BEA8425B8E8D3000EE8CF /* Beat City_MASTER.mp3 */,
+				888BEA7E25B8E8D2000EE8CF /* Burden of the Crown_MASTER.mp3 */,
+				888BEA7B25B8E8D2000EE8CF /* Letters From the Past_MASTER.mp3 */,
+				888BEA7D25B8E8D2000EE8CF /* Panic_MASTER.mp3 */,
+				888BEA8325B8E8D3000EE8CF /* Settling_MASTER.mp3 */,
+				888BEA8525B8E8D3000EE8CF /* Sleazy_MASTER.mp3 */,
+				888BEA7F25B8E8D3000EE8CF /* So Close to Nothing_MASTER.mp3 */,
+				888BEA8225B8E8D3000EE8CF /* The Key_MASTER.mp3 */,
+				888BEA8125B8E8D3000EE8CF /* Therefore I Am_MASTER.mp3 */,
+				888BEA7A25B8E8D2000EE8CF /* What's to Come_MASTER.mp3 */,
+				888BEA7C25B8E8D2000EE8CF /* Windfall_MASTER.mp3 */,
+				888BEA8025B8E8D3000EE8CF /* Zero_MASTER.mp3 */,
+			);
+			path = Tracks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +278,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888BEA9025B8E8D3000EE8CF /* Beat City_MASTER.mp3 in Resources */,
 				884DA85125B8CBF700B760A9 /* LaunchScreen.storyboard in Resources */,
 				884DA84E25B8CBF700B760A9 /* Assets.xcassets in Resources */,
+				888BEA8C25B8E8D3000EE8CF /* Zero_MASTER.mp3 in Resources */,
+				888BEA8925B8E8D3000EE8CF /* Panic_MASTER.mp3 in Resources */,
+				888BEA8B25B8E8D3000EE8CF /* So Close to Nothing_MASTER.mp3 in Resources */,
+				888BEA9125B8E8D3000EE8CF /* Sleazy_MASTER.mp3 in Resources */,
+				888BEA8E25B8E8D3000EE8CF /* The Key_MASTER.mp3 in Resources */,
+				888BEA8D25B8E8D3000EE8CF /* Therefore I Am_MASTER.mp3 in Resources */,
+				888BEA8725B8E8D3000EE8CF /* Letters From the Past_MASTER.mp3 in Resources */,
+				888BEA8825B8E8D3000EE8CF /* Windfall_MASTER.mp3 in Resources */,
 				884DA84C25B8CBF600B760A9 /* Main.storyboard in Resources */,
+				888BEA8A25B8E8D3000EE8CF /* Burden of the Crown_MASTER.mp3 in Resources */,
+				888BEA8625B8E8D3000EE8CF /* What's to Come_MASTER.mp3 in Resources */,
+				888BEA8F25B8E8D3000EE8CF /* Settling_MASTER.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +319,7 @@
 			files = (
 				884DA84925B8CBF600B760A9 /* ViewController.swift in Sources */,
 				884DA84525B8CBF600B760A9 /* AppDelegate.swift in Sources */,
+				884DA87B25B8CF0600B760A9 /* SongModel.swift in Sources */,
 				884DA84725B8CBF600B760A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

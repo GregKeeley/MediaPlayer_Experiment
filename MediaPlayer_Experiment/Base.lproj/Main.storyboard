@@ -1,24 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MediaPlayer_Experiment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBh-GO-olp">
+                                <rect key="frame" x="169" y="279" width="76" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="play.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="65"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTrack" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRH-cF-Oi1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEM-n2-8r7">
+                                <rect key="frame" x="265" y="294.5" width="45" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="bBc-mZ-gDq"/>
+                                    <constraint firstAttribute="height" constant="43" id="yPM-Lb-a62"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="forward.end" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeTrackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bPK-Qh-1MW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-hW-Wpo">
+                                <rect key="frame" x="104" y="294.5" width="45" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="aXL-IN-Uou"/>
+                                    <constraint firstAttribute="width" constant="45" id="orN-8E-1EG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="backward.end" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeTrackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eqf-DO-Bd9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHT-o7-wUO">
+                                <rect key="frame" x="142" y="83" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SONG TITLE SONG TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bf-U3-e32">
+                                <rect key="frame" x="26.5" y="112" width="361" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-4k-f7K">
+                                <rect key="frame" x="20" y="182.5" width="374" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDs-8a-Vq7">
+                                <rect key="frame" x="20" y="194.5" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUp-AQ-ZEN">
+                                <rect key="frame" x="348" y="194.5" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tBh-GO-olp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5QQ-Hp-HGG"/>
+                            <constraint firstItem="0Bf-U3-e32" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5on-uv-8fd"/>
+                            <constraint firstItem="0Bf-U3-e32" firstAttribute="top" secondItem="aHT-o7-wUO" secondAttribute="bottom" constant="8" symbolic="YES" id="7bl-sW-NlI"/>
+                            <constraint firstItem="8HS-hW-Wpo" firstAttribute="centerY" secondItem="tBh-GO-olp" secondAttribute="centerY" id="HyG-7E-krX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bUp-AQ-ZEN" secondAttribute="trailing" constant="20" id="JlI-2R-qUc"/>
+                            <constraint firstItem="TDs-8a-Vq7" firstAttribute="top" secondItem="ICr-4k-f7K" secondAttribute="bottom" constant="8" id="LXp-fo-hkp"/>
+                            <constraint firstItem="tBh-GO-olp" firstAttribute="leading" secondItem="8HS-hW-Wpo" secondAttribute="trailing" constant="20" id="Oe6-oi-kwt"/>
+                            <constraint firstItem="sEM-n2-8r7" firstAttribute="centerY" secondItem="tBh-GO-olp" secondAttribute="centerY" id="Snw-3I-bvD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ICr-4k-f7K" secondAttribute="trailing" constant="20" id="Yfw-1k-MeI"/>
+                            <constraint firstItem="TDs-8a-Vq7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Z9g-D1-SX6"/>
+                            <constraint firstItem="bUp-AQ-ZEN" firstAttribute="top" secondItem="ICr-4k-f7K" secondAttribute="bottom" constant="8" id="aqL-Ei-cAc"/>
+                            <constraint firstItem="aHT-o7-wUO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="i4b-ZA-E3X"/>
+                            <constraint firstItem="ICr-4k-f7K" firstAttribute="top" secondItem="0Bf-U3-e32" secondAttribute="bottom" constant="32" id="iSw-4i-cT9"/>
+                            <constraint firstItem="aHT-o7-wUO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iYp-tj-xfy"/>
+                            <constraint firstItem="tBh-GO-olp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="235" id="jkm-2h-hFw"/>
+                            <constraint firstItem="sEM-n2-8r7" firstAttribute="leading" secondItem="tBh-GO-olp" secondAttribute="trailing" constant="20" id="v0f-Az-1sA"/>
+                            <constraint firstItem="ICr-4k-f7K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yya-sA-Xbf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backwardButton" destination="8HS-hW-Wpo" id="x9p-mR-tb1"/>
+                        <outlet property="currentTimeLabel" destination="TDs-8a-Vq7" id="YMN-dU-hcs"/>
+                        <outlet property="forwardButton" destination="sEM-n2-8r7" id="A5G-UU-ZdS"/>
+                        <outlet property="maxTimeLabel" destination="bUp-AQ-ZEN" id="8bq-i6-8n2"/>
+                        <outlet property="playPauseButton" destination="tBh-GO-olp" id="Dki-f2-II0"/>
+                        <outlet property="progressBar" destination="ICr-4k-f7K" id="fpu-o2-lzC"/>
+                        <outlet property="songTitleLabel" destination="0Bf-U3-e32" id="dUb-Fe-ZwN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-233.33333333333334" y="81.696428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backward.end" catalog="system" width="128" height="120"/>
+        <image name="forward.end" catalog="system" width="128" height="120"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

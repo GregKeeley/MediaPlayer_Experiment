@@ -23,7 +23,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="65"/>
                                 </state>
                                 <connections>
-                                    <action selector="playTrack" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRH-cF-Oi1"/>
+                                    <action selector="playTrackButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRH-cF-Oi1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEM-n2-8r7">
@@ -37,7 +37,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeTrackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bPK-Qh-1MW"/>
+                                    <action selector="changeTrackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bPK-Qh-1MW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-hW-Wpo">
@@ -51,7 +51,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeTrackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eqf-DO-Bd9"/>
+                                    <action selector="changeTrackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eqf-DO-Bd9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHT-o7-wUO">

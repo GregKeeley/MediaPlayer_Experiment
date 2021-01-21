@@ -36,20 +36,26 @@ class ViewController: UIViewController {
     var allTracks = [String]()
     var currentTrackIndex = 0
     var mp3Player: AVAudioPlayer?
-    var currentlyPlaying = false
+    var currentlyPaused = false
+    var pauseTime: TimeInterval?
     
     var currentTrackTime: TimeInterval? {
         didSet {
             updateProgressBarTimeLabels()
         }
     }
-    var maxTrackTime: TimeInterval?
+    var maxTrackTime: TimeInterval? {
+        didSet {
+            updateProgressBarTimeLabels()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTracks()
         checkTrackIndex()
         setTrackInfo()
+        
     }
     func setTrackInfo() {
         // Cleaning and setting the title
@@ -58,10 +64,14 @@ class ViewController: UIViewController {
         let cleanTitle = title.replacingOccurrences(of: suffix, with: "")
         songTitleLabel.text = cleanTitle
         
+        currentTrackTime = TimeInterval()
+        maxTrackTime = TimeInterval()
         // Loading the max duration of the track, and setting the label
         if let duration = mp3Player?.duration, let currentTime = mp3Player?.currentTime {
             maxTrackTime = duration
             currentTrackTime = currentTime
+            print("Current Time: \(currentTime)")
+            print("Max Time: \(duration)")
         }
         updateProgressBarTimeLabels()
     }
@@ -69,16 +79,25 @@ class ViewController: UIViewController {
         for track in albumTracks.allCases {
             allTracks.append(track.rawValue)
         }
+        mp3Player?.prepareToPlay()
     }
     
     func updateProgressBarTimeLabels() {
         guard let maxTime = maxTrackTime, let currentTime = currentTrackTime else { return }
-        var currentTimePercent = (currentTime / maxTime) * 100
-        print(currentTimePercent)
-        currentTimeLabel.text = currentTime.description
-        maxTimeLabel.text = maxTime.description
+        
+        let currentTimePercent = ((currentTime / maxTime) * 100)
+        print(currentTimePercent.rounded())
+        
+        progressBar.progress = Float(currentTimePercent).rounded()
+        
+        currentTimeLabel.text = convertTimeIntervalToText(ti: currentTime)
+        maxTimeLabel.text = convertTimeIntervalToText(ti: maxTime)
     }
-    
+    func convertTimeIntervalToText(ti: TimeInterval) -> String {
+        let seconds = Int(ti) % 60
+        let minutes = (Int(ti) / 60) % 60
+        return String("\(minutes):\(seconds)")
+    }
     func checkTrackIndex() {
         if currentTrackIndex == 0 {
             backwardButton.isEnabled = false
@@ -97,52 +116,57 @@ class ViewController: UIViewController {
             // Check the index to enable/disable buttons
             checkTrackIndex()
             return }
+        
         // Check which button was pressed
         if sender == backwardButton {
         currentTrackIndex -= 1
         } else if sender == forwardButton {
             currentTrackIndex += 1
         }
-        // Check if the audio was alredy playing and continue
-        if mp3Player?.isPlaying ?? false {
-            playTrack()
-        }
         // Change title for track, and enable/disable buttons depending on the position in the album
         setTrackInfo()
         checkTrackIndex()
-        
     }
-    @IBAction func changeTrackPressed(_ sender: UIButton) {
+    func playTrack() {
+        if currentTrackIndex >= 0 && currentTrackIndex <= allTracks.count {
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            let currentTrack = ("\(allTracks[currentTrackIndex])")
+            let path = Bundle.main.path(forResource: currentTrack, ofType: "mp3")!
+            let url = URL(fileURLWithPath: path)
+            do {
+                mp3Player = try AVAudioPlayer(contentsOf: url)
+                mp3Player?.play()
+            } catch {
+                print("mp3 player failed")
+            }
+        }
+    }
+    @IBAction func changeTrackButtonPressed(_ sender: UIButton) {
         changeTrack(sender)
-        if mp3Player?.isPlaying ?? false {
+        currentlyPaused = false
+        if mp3Player?.isPlaying ?? true {
+            mp3Player?.stop()
             playTrack()
         }
     }
-    
-//    @IBAction func changeTrackButtonPressed(_ sender: UIButton) {
-//        changeTrack(sender)
-//    }
     
     // Checks if the mp3Player is playing
     /// - Not playing: Pause
     /// TODO:
     /// - Playing: Plays
-    @IBAction func playTrack() {
+    @IBAction func playTrackButtonPressed() {
         if !(mp3Player?.isPlaying ?? false) {
-            if currentTrackIndex >= 0 && currentTrackIndex <= allTracks.count {
-                playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
-                let currentTrack = ("\(allTracks[currentTrackIndex])")
-                let path = Bundle.main.path(forResource: currentTrack, ofType: "mp3")!
-                let url = URL(fileURLWithPath: path)
-                do {
-                    mp3Player = try AVAudioPlayer(contentsOf: url)
-                    mp3Player?.play()
-                } catch {
-                    print("mp3 player failed")
-                }
+            if currentlyPaused {
+                currentlyPaused = false
+                mp3Player?.play()
+            } else {
+                playTrack()
             }
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         } else if mp3Player?.isPlaying ?? true {
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            currentlyPaused = true
+            pauseTime = mp3Player?.currentTime
             mp3Player?.pause()
         }
     }

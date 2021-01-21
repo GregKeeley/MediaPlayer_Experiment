@@ -35,9 +35,11 @@ class ViewController: UIViewController {
     
     var allTracks = [String]()
     var currentTrackIndex = 0
-    var mp3Player: AVAudioPlayer?
+    var mp3Player: AVAudioPlayer!
     var currentlyPaused = false
     var pauseTime: TimeInterval?
+    
+    var timer: Timer!
     
     var currentTrackTime: TimeInterval? {
         didSet {
@@ -55,8 +57,18 @@ class ViewController: UIViewController {
         loadTracks()
         checkTrackIndex()
         setTrackInfo()
-        
+        updateProgressBarTimeLabels()
     }
+    
+    @objc func updateTime() {
+        let currentTime = Int(mp3Player.currentTime)
+        let minutes = currentTime/60
+        let seconds = currentTime - minutes * 60
+            
+        currentTimeLabel.text = String(format: "%02d:%02d", minutes,seconds) as String
+        updateProgressBarTimeLabels()
+    }
+    
     func setTrackInfo() {
         // Cleaning and setting the title
         let suffix = "_MASTER"
@@ -64,17 +76,13 @@ class ViewController: UIViewController {
         let cleanTitle = title.replacingOccurrences(of: suffix, with: "")
         songTitleLabel.text = cleanTitle
         
-        currentTrackTime = TimeInterval()
+        currentTrackTime = 0
         maxTrackTime = TimeInterval()
-        // Loading the max duration of the track, and setting the label
-        if let duration = mp3Player?.duration, let currentTime = mp3Player?.currentTime {
+        if let duration = mp3Player?.duration {
             maxTrackTime = duration
-            currentTrackTime = currentTime
-            print("Current Time: \(currentTime)")
-            print("Max Time: \(duration)")
         }
-        updateProgressBarTimeLabels()
     }
+
     func loadTracks() {
         for track in albumTracks.allCases {
             allTracks.append(track.rawValue)
@@ -83,20 +91,18 @@ class ViewController: UIViewController {
     }
     
     func updateProgressBarTimeLabels() {
-        guard let maxTime = maxTrackTime, let currentTime = currentTrackTime else { return }
-        
-        let currentTimePercent = ((currentTime / maxTime) * 100)
-        print(currentTimePercent.rounded())
-        
-        progressBar.progress = Float(currentTimePercent).rounded()
-        
-        currentTimeLabel.text = convertTimeIntervalToText(ti: currentTime)
-        maxTimeLabel.text = convertTimeIntervalToText(ti: maxTime)
+        if let currentTime = maxTrackTime, let maxTime = maxTrackTime {
+            let currentTimePercent = ((currentTime / maxTime) * 100)
+            progressBar.progress = Float(currentTimePercent).rounded()
+            currentTimeLabel.text = convertTimeIntervalToText(ti: currentTime)
+            maxTimeLabel.text = convertTimeIntervalToText(ti: maxTime)
+        }
     }
     func convertTimeIntervalToText(ti: TimeInterval) -> String {
         let seconds = Int(ti) % 60
         let minutes = (Int(ti) / 60) % 60
-        return String("\(minutes):\(seconds)")
+        let time = String(format: "%02d:%02d", minutes,seconds) as String
+        return time
     }
     func checkTrackIndex() {
         if currentTrackIndex == 0 {
@@ -136,6 +142,7 @@ class ViewController: UIViewController {
             do {
                 mp3Player = try AVAudioPlayer(contentsOf: url)
                 mp3Player?.play()
+                timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
             } catch {
                 print("mp3 player failed")
             }
@@ -159,6 +166,7 @@ class ViewController: UIViewController {
             if currentlyPaused {
                 currentlyPaused = false
                 mp3Player?.play()
+                
             } else {
                 playTrack()
             }
